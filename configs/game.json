@@ -1,0 +1,41 @@
+{
+  "timing": {
+    "perfectWindowMs": 400,
+    "greatWindowMs": 800,
+    "goodWindowMs": 1500,
+    "missWindowMs": 3000,
+    "autoAdvanceRestMs": 200
+  },
+  "scoring": {
+    "perfect": 300,
+    "great": 250,
+    "good": 200,
+    "miss": 0,
+    "comboThresholds": [10, 30, 50],
+    "comboMultipliers": [1, 2, 3, 4]
+  },
+  "choir": {
+    "appearThresholds": [5, 10, 15, 20, 30, 40, 50, 75],
+    "fadeOnBreak": true
+  },
+  "audio": {
+    "defaultMasterVolume": 0.8,
+    "defaultBackingVolume": 0.6,
+    "defaultSampleVolume": 1.0,
+    "sampleDurationMs": 800
+  },
+  "progression": {
+    "unlockLevels": {
+      "amazing-grace": 1,
+      "greensleeves": 2,
+      "house-rising-sun": 3,
+      "scarborough-fair": 4,
+      "loch-lomond": 5
+    },
+    "syllableUnlockLevels": {
+      "dah": 1,
+      "doh": 3,
+      "dmm": 5
+    }
+  }
+}

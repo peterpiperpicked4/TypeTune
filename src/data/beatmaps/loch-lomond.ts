@@ -1,0 +1,127 @@
+/**
+ * Loch Lomond — First verse beatmap
+ * Key: G major, BPM: 110, Time: 4/4, Difficulty: 5
+ * MIDI: D4=62, E4=64, F#4=66, G4=67, A4=69, B4=71, C5=72, D5=74
+ * Syllable: dah
+ */
+
+import type { Beatmap } from '../types';
+
+// At 110 BPM: quarter = 545ms, eighth = 273ms, half = 1091ms, whole = 2182ms
+const Q = 545;
+const E = 273;
+const H = 1091;
+const W = 2182;
+
+export const lochLomond: Beatmap = {
+  songId: 'loch-lomond',
+  title: 'Loch Lomond',
+  artist: 'Traditional',
+  bpm: 110,
+  timeSignature: [4, 4],
+  difficulty: 5,
+  phrases: [
+    {
+      text: 'By yon bonnie banks',
+      startTime: 0,
+      notes: [
+        { char: 'b', time: 0, midi: 62, duration: E, syllable: 'dah' },
+        { char: 'y', time: E, midi: 64, duration: E, syllable: 'dah' },
+        { char: ' ', time: E + E, midi: 64, duration: E, syllable: 'dah' },
+        { char: 'y', time: E + E + E, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'o', time: E + E + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'n', time: E + E + E + Q + Q, midi: 67, duration: E, syllable: 'dah' },
+        { char: ' ', time: E + E + E + Q + Q + E, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'b', time: E + E + E + Q + Q + E + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'o', time: E + E + E + Q + Q + E + E + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'n', time: E + E + E + Q + Q + E + E + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'n', time: E + E + E + Q + Q + E + E + Q + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'i', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'e', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: ' ', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q, midi: 71, duration: E, syllable: 'dah' },
+        { char: 'b', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q + E, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'a', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q + E + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'n', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q + E + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'k', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q + E + Q + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 's', time: E + E + E + Q + Q + E + E + Q + Q + Q + Q + Q + Q + E + Q + Q + Q + Q, midi: 67, duration: H, syllable: 'dah' },
+      ],
+    },
+    {
+      text: 'and by yon bonnie braes',
+      startTime: 11000,
+      notes: [
+        { char: 'a', time: 11000, midi: 62, duration: E, syllable: 'dah' },
+        { char: 'n', time: 11000 + E, midi: 64, duration: E, syllable: 'dah' },
+        { char: 'd', time: 11000 + E + E, midi: 66, duration: E, syllable: 'dah' },
+        { char: ' ', time: 11000 + E + E + E, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'b', time: 11000 + E + E + E + E, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'y', time: 11000 + E + E + E + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 11000 + E + E + E + E + Q + Q, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'y', time: 11000 + E + E + E + E + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'o', time: 11000 + E + E + E + E + Q + Q + E + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 11000 + E + E + E + E + Q + Q + E + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'b', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'o', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q, midi: 74, duration: Q, syllable: 'dah' },
+        { char: 'i', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q, midi: 71, duration: E, syllable: 'dah' },
+        { char: 'b', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'r', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'a', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q + E + Q + Q, midi: 66, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q + E + Q + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 's', time: 11000 + E + E + E + E + Q + Q + E + Q + Q + Q + E + Q + Q + Q + Q + Q + Q + E + Q + Q + Q + Q, midi: 67, duration: H, syllable: 'dah' },
+      ],
+    },
+    {
+      text: 'where the sun shines bright on Loch Lomond',
+      startTime: 22000,
+      notes: [
+        { char: 'w', time: 22000, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'h', time: 22000 + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 22000 + Q + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'r', time: 22000 + Q + Q + Q, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 22000 + Q + Q + Q + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q, midi: 71, duration: E, syllable: 'dah' },
+        { char: 't', time: 22000 + Q + Q + Q + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'h', time: 22000 + Q + Q + Q + Q + Q + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q, midi: 69, duration: E, syllable: 'dah' },
+        { char: 's', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'u', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q, midi: 74, duration: H, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H, midi: 74, duration: E, syllable: 'dah' },
+        { char: 's', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E, midi: 72, duration: Q, syllable: 'dah' },
+        { char: 'h', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: 'i', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'e', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 's', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q, midi: 71, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q, midi: 71, duration: E, syllable: 'dah' },
+        { char: 'b', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'r', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'i', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q, midi: 66, duration: E, syllable: 'dah' },
+        { char: 'g', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'h', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 't', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'o', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E, midi: 66, duration: E, syllable: 'dah' },
+        { char: 'n', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E, midi: 64, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q, midi: 64, duration: E, syllable: 'dah' },
+        { char: 'l', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E, midi: 62, duration: Q, syllable: 'dah' },
+        { char: 'o', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q, midi: 64, duration: Q, syllable: 'dah' },
+        { char: 'c', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q, midi: 66, duration: Q, syllable: 'dah' },
+        { char: 'h', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: ' ', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q, midi: 67, duration: E, syllable: 'dah' },
+        { char: 'l', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'o', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E + Q, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'm', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E + Q + Q, midi: 66, duration: E, syllable: 'dah' },
+        { char: 'o', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E + Q + Q + E, midi: 67, duration: Q, syllable: 'dah' },
+        { char: 'n', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E + Q + Q + E + Q, midi: 69, duration: Q, syllable: 'dah' },
+        { char: 'd', time: 22000 + Q + Q + Q + Q + Q + E + Q + Q + Q + E + Q + Q + H + E + Q + Q + Q + Q + Q + Q + E + Q + Q + E + Q + Q + Q + E + E + Q + E + Q + Q + Q + Q + E + Q + Q + E + Q + Q, midi: 67, duration: W, syllable: 'dah' },
+      ],
+    },
+  ],
+};
