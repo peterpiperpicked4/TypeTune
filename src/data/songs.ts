@@ -15,7 +15,7 @@ export const songs: SongMeta[] = [
     unlockLevel: 1,
     coverColor: '#6c5ce7',
     backingTrackUrl: 'assets/backing/amazing-grace.mp3',
-    syllable: 'dah',
+    syllable: 'doo',
   },
   {
     id: 'greensleeves',

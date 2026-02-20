@@ -118,10 +118,10 @@ export class SampleBank {
     return this.play('bmm', midi, 4, gainScale);
   }
 
-  /** Play the selected voice syllable at low (soft) dynamics */
-  playVoice(syllable: Syllable, midi: number, gainScale: number = 0.8): boolean {
-    // Prefer dynamic 1-2 (softer sounds better)
-    return this.play(syllable, midi, 1, gainScale) || this.play(syllable, midi, 2, gainScale);
+  /** Play the selected voice syllable at quietest dynamics, one octave lower */
+  playVoice(syllable: Syllable, midi: number, gainScale: number = 0.5): boolean {
+    // Shift down one octave (-12 semitones) and use dynamic 1 (pp — quietest)
+    return this.play(syllable, midi - 12, 1, gainScale);
   }
 
   /** Play a chord (stacked dmm samples) at moderate gain */

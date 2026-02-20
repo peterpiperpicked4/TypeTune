@@ -13,7 +13,7 @@ const DEFAULT_SETTINGS: PlayerSettings = {
   showKeyboard: true,
   timingAssist: false,
   tempo: 1.0,
-  voice: 'dah',
+  voice: 'doo',
   latencyOffsetMs: 0,
   flowMode: true,
   phraseMode: false,
