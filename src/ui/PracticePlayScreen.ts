@@ -1,6 +1,6 @@
 /**
  * Practice play screen: typing tutor UI for Practice Mode.
- * Shows current word with cursor, upcoming words, WPM, accuracy, timer.
+ * Shows current sentence with cursor, upcoming sentences, WPM, accuracy, timer.
  * Reuses KeyboardVis for finger guide + wrong-key feedback.
  */
 
@@ -93,35 +93,35 @@ export class PracticePlayScreen {
       align-items: center;
       justify-content: center;
       gap: clamp(16px, 3vw, 28px);
-      padding: clamp(20px, 3vw, 40px);
+      padding: clamp(20px, 4vw, 48px) clamp(24px, 5vw, 60px);
     `;
 
     this.currentWordEl = document.createElement('div');
     this.currentWordEl.setAttribute('aria-live', 'polite');
-    this.currentWordEl.setAttribute('aria-label', 'Current word');
+    this.currentWordEl.setAttribute('aria-label', 'Current sentence');
     this.currentWordEl.style.cssText = `
       font-family: var(--tt-font-mono);
-      font-size: clamp(18px, 3vw, 28px);
+      font-size: clamp(16px, 2.5vw, 24px);
       font-weight: 500;
-      letter-spacing: 2px;
-      line-height: 1.6;
-      text-align: center;
-      max-width: 90%;
-      overflow-wrap: break-word;
-      word-break: normal;
+      line-height: 2;
+      text-align: left;
+      width: 100%;
+      max-width: 720px;
     `;
 
     this.upcomingEl = document.createElement('div');
     this.upcomingEl.setAttribute('aria-hidden', 'true');
     this.upcomingEl.style.cssText = `
       font-family: var(--tt-font-mono);
-      font-size: clamp(14px, 2vw, 18px);
+      font-size: clamp(12px, 1.5vw, 15px);
       font-weight: 300;
       color: var(--tt-text-muted);
-      letter-spacing: 1px;
-      text-align: center;
-      max-width: 80%;
-      opacity: 0.5;
+      letter-spacing: 0.5px;
+      text-align: left;
+      width: 100%;
+      max-width: 720px;
+      opacity: 0.4;
+      line-height: 1.8;
     `;
 
     this.wordContainer.appendChild(this.currentWordEl);
@@ -174,32 +174,72 @@ export class PracticePlayScreen {
 
   /** Set upcoming words for preview. */
   setUpcoming(words: string[]): void {
-    this.upcomingEl.textContent = words.slice(0, 3).join('  \u00b7  ');
+    this.upcomingEl.textContent = words.slice(0, 2).join('  \u00b7  ');
   }
 
-  /** Render current word with typed/untyped coloring + cursor. */
+  /**
+   * Render current sentence with typed/untyped coloring + cursor.
+   * Groups characters into word-level spans so line breaks only happen between words.
+   */
   private renderWord(): void {
-    const chars = this.currentWordText.split('');
-    let html = '';
-    for (let i = 0; i < chars.length; i++) {
-      const ch = chars[i] === ' ' ? '\u00a0' : chars[i]; // non-breaking space for visibility
-      if (i < this.currentCharIdx) {
-        // Typed — bright
-        html += `<span style="color: var(--tt-accent);">${ch}</span>`;
-      } else if (i === this.currentCharIdx) {
-        // Cursor
-        html += `<span style="
-          color: var(--tt-text);
-          border-bottom: 2px solid var(--tt-accent);
-          animation: cursorGlow 1.2s ease infinite;
-          padding-bottom: 2px;
-        ">${ch}</span>`;
-      } else {
-        // Upcoming
-        html += `<span style="color: var(--tt-text-dim);">${ch}</span>`;
+    // Split text into words (preserving spaces as separators)
+    const text = this.currentWordText;
+    const words = text.split(' ');
+
+    this.currentWordEl.innerHTML = '';
+
+    let charOffset = 0;
+
+    for (let w = 0; w < words.length; w++) {
+      const word = words[w];
+
+      // Create a word wrapper that prevents mid-word breaks
+      const wordSpan = document.createElement('span');
+      wordSpan.style.whiteSpace = 'nowrap';
+      wordSpan.style.display = 'inline';
+
+      // Render each character in this word
+      for (let c = 0; c < word.length; c++) {
+        const globalIdx = charOffset + c;
+        const ch = document.createElement('span');
+        ch.textContent = word[c];
+
+        if (globalIdx < this.currentCharIdx) {
+          ch.style.color = 'var(--tt-accent)';
+        } else if (globalIdx === this.currentCharIdx) {
+          ch.style.color = 'var(--tt-text)';
+          ch.style.borderBottom = '2px solid var(--tt-accent)';
+          ch.style.paddingBottom = '2px';
+        } else {
+          ch.style.color = 'var(--tt-text-dim)';
+        }
+
+        wordSpan.appendChild(ch);
+      }
+
+      this.currentWordEl.appendChild(wordSpan);
+
+      // Add space between words (not after last word)
+      charOffset += word.length;
+      if (w < words.length - 1) {
+        const spaceIdx = charOffset;
+        const spaceSpan = document.createElement('span');
+        spaceSpan.textContent = ' ';
+
+        if (spaceIdx < this.currentCharIdx) {
+          spaceSpan.style.color = 'var(--tt-accent)';
+        } else if (spaceIdx === this.currentCharIdx) {
+          spaceSpan.style.color = 'var(--tt-text)';
+          spaceSpan.style.borderBottom = '2px solid var(--tt-accent)';
+          spaceSpan.style.paddingBottom = '2px';
+        } else {
+          spaceSpan.style.color = 'var(--tt-text-dim)';
+        }
+
+        this.currentWordEl.appendChild(spaceSpan);
+        charOffset++; // for the space
       }
     }
-    this.currentWordEl.innerHTML = html;
   }
 
   private updateLiveStats(): void {
