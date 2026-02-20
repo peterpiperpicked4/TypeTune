@@ -101,13 +101,15 @@ export class PracticePlayScreen {
     this.currentWordEl.setAttribute('aria-label', 'Current word');
     this.currentWordEl.style.cssText = `
       font-family: var(--tt-font-mono);
-      font-size: clamp(28px, 5vw, 42px);
+      font-size: clamp(18px, 3.5vw, 32px);
       font-weight: 500;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       line-height: 1.4;
       text-align: center;
-      max-width: 90%;
-      word-break: break-word;
+      max-width: 95%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     `;
 
     this.upcomingEl = document.createElement('div');
